@@ -1,0 +1,14 @@
+.product-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+
+  &__item {
+    width: 33.3333%;
+
+    &-image {
+      max-width: 100px;
+    }
+  }
+}
