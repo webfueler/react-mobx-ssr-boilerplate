@@ -35,3 +35,4 @@ npm run start
 - better styling (this is mainly showcasing architecture, not UI)
 - extract layout to file for better customization (`index.ejs`)
 - ability to set `basename` by http request headers (`x-basename`) - good for ssr micro-frontends
+- replace `<Head>` custom implementation with [react-helmet](https://github.com/nfl/react-helmet)
