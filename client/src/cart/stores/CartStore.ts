@@ -15,6 +15,7 @@ import { identifiers } from "../../container/constants";
 interface ICartStore {
 	add(id: number): Promise<Product[]>;
 	remove(id: number): Product[];
+	has(id: number): boolean;
 	products: Product[];
 	productIds: number[];
 	total: number;
@@ -43,6 +44,10 @@ class CartStore implements ICartStore {
 			ids.push(product.id);
 		}
 		return ids;
+	}
+
+	public has(id: number): boolean {
+		return this.productIds.includes(id);
 	}
 
 	@action

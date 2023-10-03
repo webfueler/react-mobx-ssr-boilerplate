@@ -15,17 +15,26 @@ type Props = {
 const AddToCartButtonComponent = ({
 	cartStore,
 	product,
-}: Props): React.ReactElement => (
-	<button
-		type="button"
-		onClick={(): void => {
-			cartStore.add(product.id);
-		}}
-		disabled={cartStore.productIds.includes(product.id)}
-	>
-		Add to cart
-	</button>
-);
+}: Props): React.ReactElement =>
+	cartStore.has(product.id) ? (
+		<button
+			type="button"
+			onClick={(): void => {
+				cartStore.remove(product.id);
+			}}
+		>
+			Remove
+		</button>
+	) : (
+		<button
+			type="button"
+			onClick={(): void => {
+				cartStore.add(product.id);
+			}}
+		>
+			Add to cart
+		</button>
+	);
 
 const AddToCartButton = withModule<Modules>({
 	cartStore: identifiers.ICartStore,
